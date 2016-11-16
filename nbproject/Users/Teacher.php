@@ -6,24 +6,28 @@ class Teacher extends Worker{
     use DigitalUser;
     private $name;
     private $age;
-    private $course;
+    private $courses=[];
 
-    function __construct($name,$age,$email,$course=null){
+    function __construct($name,$age,$email,$courses=null){
         $this->name=$name;
         $this->age=$age;
         $this->email=$email;
-        $this->course=$course;
+        $this->courses=$courses;
     }
 
-    function getCourse(){
-        return $this->Course;   
+    function getCourses(){
+        return $this->courses;   
     }
 
-    function setCourse(Course $course){
-        $this->Course=$course;
+    function setCourse($s){
+        $this->courses=$s;
     }
     
-        function getName(){
+    function addCourse(course $s){
+        $this->courses[]=$s;
+    }
+    
+    function getName(){
         return $this->name;
     }
 
@@ -42,7 +46,12 @@ class Teacher extends Worker{
     function __toString(){
         $output = "Name: ".$this->name."<br>";
         $output .= "Age: ".$this->age."<br>";
-        $output .= "Course: ".$this->course."<br>";
+        
+        $courses = "";
+        foreach($this->courses as $course){
+            $courses .= "($course), ";
+        }
+        $output .= "Courses: [".$courses."]<br>";
         return $output;
     }
 }
