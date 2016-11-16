@@ -7,24 +7,48 @@ spl_autoload_register(function($class_name) {
 });
 
 use Users\Student as Stud;
-use Users\Teacher;
-use Users\Course;
+//use Users\Teacher;
+//use Users\Course;
+
+//$stud1 = new Stud("Mario", 20, "mario.hoxhaj@villaggio.org");
+//$stud2 = new Stud("Alessio", 22, "alessio.adamini@villaggio.org");
+//$stud3 = new Stud("Rachele", 20, "rachele.montepagano@villaggio.org");
+//
+//$teach1 = new Teacher("Fabio", 32, "front-end");
+//$teach2 = new Teacher("Valerio", "??", "back-end");
+//$teach3 = new Teacher("Igor", "??", "databases");
+//
+//$corso1= new Course("Front-End", "200 hours");
+//$corso2= new Course("Back-End", "100 hours");
+//
+//$stud1->addCourse($corso1);
+//$stud1->addCourse($corso2);
+//
+//$teach1->addCourse($corso1);
+//
+//echo $stud1;
+//echo "<br>";
+//echo "--------------------------------------------------------------------";
+//echo "<br>";
+//echo "<br>";
+//echo $teach1;
+
 
 $stud1 = new Stud("Mario", 20, "mario.hoxhaj@villaggio.org");
-$stud2 = new Stud("Alessio", 22, "alessio.adamini@villaggio.org");
-$stud3 = new Stud("Rachele", 20, "rachele.montepagano@villaggio.org");
+$stud1->add(new \Users\Course("Front-End", "200 hours"));
+$stud1->add(new \Users\Course("Back-End", "100 hours"));
+ echo $stud1;
+foreach ($stud1 as $s) {
+    echo $s;
+}
 
-$teach1 = new Teacher("Fabio", 32, "front-end");
-$teach2 = new Teacher("Valerio", "??", "back-end");
-$teach3 = new Teacher("Igor", "??", "databases");
+$stud2 = new Stud("ugo", 20, "mario.hoxhaj@villaggio.org");
+$stud2->add(new \Users\Course("Front-End", "200 hours"));
 
-$corso1= new Course("Front-End", "200 hours");
-$corso2= new Course("Back-End", "100 hours");
-
-$stud1->addCourse($corso1);
-$stud1->addCourse($corso2);
-
-echo $stud1;
+echo $stud2;
+foreach ($stud2 as $s) {
+    echo $s;
+}
 /*
 echo $stud1;
 echo "<br>";

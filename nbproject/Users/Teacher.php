@@ -54,4 +54,12 @@ class Teacher extends Worker{
         $output .= "Courses: [".$courses."]<br>";
         return $output;
     }
+    
+    function getSchool(){
+        
+    }
+    
+    function setSchool(School $school){
+    
+    }
 }
