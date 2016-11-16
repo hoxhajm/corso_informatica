@@ -1,35 +1,29 @@
 <?php
+namespace Users;
 
-require_once "Person.php";
-require_once "DigitalUser.php";
 
-class Student implements Person {
+class Teacher extends Worker{
     use DigitalUser;
     private $name;
     private $age;
-    private $courses;
+    private $course;
 
-
-    function __construct($name,$age,$email,$courses=[]){
+    function __construct($name,$age,$email,$course=null){
         $this->name=$name;
         $this->age=$age;
         $this->email=$email;
-        $this->courses=$courses;
+        $this->course=$course;
     }
 
-    function getCourses(){
-        return $this->courses;   
+    function getCourse(){
+        return $this->Course;   
     }
 
-    function addCourse(Course $s){
-        $this->course=$s;
+    function setCourse(Course $course){
+        $this->Course=$course;
     }
-
-    function resetCourses(){
-        $this->courses=[];
-    }
-
-    function getName(){
+    
+        function getName(){
         return $this->name;
     }
 
@@ -48,8 +42,7 @@ class Student implements Person {
     function __toString(){
         $output = "Name: ".$this->name."<br>";
         $output .= "Age: ".$this->age."<br>";
-        $output .= "Email: ".$this->email."<br>";
-        $output .= "Courses: ".$this->courses."<br>";
+        $output .= "Course: ".$this->course."<br>";
         return $output;
     }
 }

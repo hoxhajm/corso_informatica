@@ -1,4 +1,5 @@
 <?php
+namespace Users;
 
 interface Person {
     function getName();
